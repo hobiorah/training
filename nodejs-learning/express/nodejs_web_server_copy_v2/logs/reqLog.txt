@@ -1,0 +1,9 @@
+20240724	19:27:47	40677d65-2e11-4351-b814-62e619984d7d	/items/	GET
+20240724	19:27:47	8a986ee6-82d7-40b7-8696-669ced56a4a8	/css/style.css	GET
+20240724	19:27:47	32120574-2e93-4fff-bbcb-b0bce69439df	/favicon.ico	GET
+20240725	19:43:02	638a0ddd-62a4-4d35-8142-9096ec75bb88	GET	 undefined	/index
+20240725	19:43:02	5c442d27-4045-42ec-95bf-034612d28dc2	GET	 undefined	/css/style.css
+20240725	19:43:14	6f599d62-0edd-424e-99ee-c558ace1f0be	GET	 undefined	/index.html
+20240725	19:43:14	4db2ed57-e730-4f97-87fb-6b005127e16f	GET	 undefined	/css/style.css
+20240725	19:43:35	2ee985f2-6686-4420-be54-242ef0bcb2b5	GET	 undefined	/
+20240725	19:43:35	be4e84fc-0753-4efa-9e5a-f2d39c2ac425	GET	 undefined	/css/style.css
