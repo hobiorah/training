@@ -1,9 +1,17 @@
 import Feed from './Feed';
 
-const Home = ({ posts }) => {
+const Home = ({ posts, fetchError, isLoading }) => {
     return (
         <main className="Home">
-            {/* if there are posts than llad the feed component, if not say nothing to diisplay */}
+            {isLoading && <p className="statusMsg">Loading posts...</p>}
+            {!isLoading && fetchError && <p className="statusMsg" style={{ color: "red" }}>{fetchError}</p>}
+            {!isLoading && !fetchError && (posts.length ? <Feed posts={posts} /> : <p className="statusMsg">No posts to display.</p>)}
+        </main>
+    )
+    
+    return (
+        <main className="Home">
+            {/* if there are posts than add the feed component, if not say nothing to diisplay */}
             {posts.length ? (
                 <Feed posts={posts} />
             ) : (
