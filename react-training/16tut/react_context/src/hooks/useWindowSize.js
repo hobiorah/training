@@ -6,27 +6,19 @@ const useWindowSize = () => {
         height: undefined
     });
 
-
-//we're using a native hook
     useEffect(() => {
-        console.log("initial windowsize to rezise")
-
 
         const handleResize = () => {
             setWindowSize({
                 width: window.innerWidth,
                 height: window.innerHeight
             });
-
-            console.log("supposed to rezise")
         }
 
         handleResize();
 
-        //this will allow you to always update the window when you want. use an event listener
         window.addEventListener("resize", handleResize);
 
-        //use effect lets you execute code when a dependency chantes or when the application closes. could also pass a function with multiple lines vs simple anonymous function
         return () => window.removeEventListener("resize", handleResize);
     }, [])
 

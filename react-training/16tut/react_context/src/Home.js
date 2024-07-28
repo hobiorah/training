@@ -1,10 +1,6 @@
-
 import Feed from './Feed';
 import { useContext } from 'react';
 import DataContext from './context/DataContext';
-//<Home posts={searchResults} fetchError = {fetchError} isLoading={isLoading} />
-
-
 
 const Home = () => {
     const { searchResults, fetchError, isLoading } = useContext(DataContext);
@@ -19,5 +15,3 @@ const Home = () => {
 }
 
 export default Home
-
-

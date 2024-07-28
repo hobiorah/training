@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+//created because there are certain aspects of a request we know we want and there are features like abort, catch error, etc that we can bundle with this react feature
 const useAxiosFetch = (dataUrl) => {
     const [data, setData] = useState([]);
     const [fetchError, setFetchError] = useState(null);

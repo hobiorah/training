@@ -83,7 +83,7 @@ export default Nav
 - lets you pull data from the url
     `const { id } = useParams(); `
 
-# useHistory - get user to go to certain page/route
+# useHistory updated to useNavigate - get user to go to certain page/route
 ```const navigate = useNavigate();
 
  navigate('/');

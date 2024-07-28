@@ -426,6 +426,44 @@ return (
 - notice how the main container is "negated" because of the javascript insertion below it
 
 # custom hooks
+- you then import where you want to use, then invoke the method and pull out the variables you want from the object (prob all)
+` const {width} = useWindowSize();`
+```
+const useWindowSize = () => {
+    const [windowSize, setWindowSize] = useState({
+        width: undefined,
+        height: undefined
+    });
+
+
+//we're using a native hook
+    useEffect(() => {
+        console.log("initial windowsize to rezise")
+
+
+        const handleResize = () => {
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight
+            });
+
+            console.log("supposed to rezise")
+        }
+
+        handleResize();
+
+        //this will allow you to always update the window when you want. use an event listener
+        window.addEventListener("resize", handleResize);
+
+        //use effect lets you execute code when a dependency chantes or when the application closes. could also pass a function with multiple lines vs simple anonymous function
+        return () => window.removeEventListener("resize", handleResize);
+    }, [])
+
+    return windowSize;
+}
+
+export default useWindowSize;
+```
 
 ## hooks created by other people 
 Collections of Hooks:
@@ -435,3 +473,70 @@ https://www.npmjs.com/package/react-use
 
 # imports
 either pulling out a function or variable that was exported
+
+# react icons
+`npm i react-icons`'
+
+# context
+
+`import { DataProvider } from './context/DataContext'; //we can use data provider to provide data to components`
+
+
+
+old way - using props(passing values in in main app component)
+```
+<Routes>
+        <Route path="/" element={<Layout
+          search={search}
+          setSearch={setSearch}
+          width={width}
+        />}>
+          <Route index element={<Home posts={searchResults} fetchError = {fetchError} isLoading={isLoading} />} />
+          <Route path="post">
+            <Route index element={<NewPost
+              handleSubmit={handleSubmit}
+              postTitle={postTitle}
+              setPostTitle={setPostTitle}
+              postBody={postBody}
+              setPostBody={setPostBody}
+            />} />
+            <Route path=":id" element={<PostPage
+              posts={posts}
+              handleDelete={handleDelete}
+            />} />
+            <Route path="edit/:id" element={<EditPost
+              posts={posts}
+              handleEdit={handleEdit}
+              editTitle={editTitle}
+              setEditTitle={setEditTitle}
+              editBody={editBody}
+              setEditBody={setEditBody}
+            />} />
+          </Route>
+          <Route path="edit/:id" element={<EditPost
+              posts={posts}
+              handleEdit={handleEdit}
+              editTitle={editTitle}
+              setEditTitle={setEditTitle}
+              editBody={editBody}
+              setEditBody={setEditBody}
+            />} />
+          <Route path="about" element={<About />} />
+          <Route path="*" element={<Missing />} />
+        </Route>
+      </Routes>
+```
+
+
+## getting data in indidivual components
+import use context hook from react 
+import your datacontext file/object 
+
+now you pull out the values you want from useContext(DataContext)
+```
+import { useContext } from 'react';
+import DataContext from './context/DataContext';
+
+const Home = () => {
+    const { searchResults, fetchError, isLoading } = useContext(DataContext);
+```

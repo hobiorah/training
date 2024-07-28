@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom';
 const Layout = ({ search, setSearch, width }) => {
     return (
         <div className="App">
-            <Header title="React JS Blog" width={width} />
+            <Header title="React JS Blog"  />
             <Nav search={search} setSearch={setSearch} />
             {/* represents all the elemnts that will be included that aren't consistent reardless of whats happeneing */}
             <Outlet /> 
